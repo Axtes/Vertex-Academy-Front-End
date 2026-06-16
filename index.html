@@ -1,4 +1,20 @@
-<script>
-    window.location.href =
-        "frontend/pages/auth.html";
-</script>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Carregando...</title>
+</head>
+<body>
+    <script type="module">
+        import { obterToken } from "./frontend/services/token.storage.js";
+
+        const token = obterToken(); 
+
+        if (token) {
+            window.location.href = "frontend/pages/dashboard.html";
+        } else {
+            window.location.href = "frontend/pages/auth.html";
+        }
+    </script>
+</body>
+</html>
