@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Vertex Academy</title>
+
+    <link rel="stylesheet" href="/frontend/styles/dashboard.css">
+</head>
+<body>
+
+<header>
+
+    <div class="logo">
+        Vertex Academy
+    </div>
+
+    <div class="perfil">
+
+        <div class="avatar">
+            👤
+        </div>
+
+        <div class="dados-usuario">
+
+            <p id="nomeUsuario"></p>
+
+            <p>
+                Matrícula:
+                <span id="matriculaUsuario"></span>
+            </p>
+
+            <p>
+                Turma:
+                <span id="turmaUsuario"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+</header>
+
+<div class="container">
+
+    <aside id="menuLateral">
+
+        <button id="btnCursos">
+            Cursos
+        </button>
+
+    <div class="top-actions">
+        <button id="btnInscricao" class="hidden">
+            Inscrever-se
+        </button>
+    </div>
+
+        <button class="hidden aluno-menu">
+            Frequência
+        </button>
+
+        <button class="hidden aluno-menu">
+            Notas
+        </button>
+
+        <button class="hidden aluno-menu">
+            Disciplinas
+        </button>
+
+    </aside>
+
+    <main>
+
+        <div id="mensagem"></div>
+
+        <div id="conteudoPrincipal">
+
+            <h2>Cursos Disponíveis</h2>
+
+            <div id="listaCursos"></div>
+
+            <div class="paginacao">
+
+                <button id="btnAnterior">
+                    <
+                </button>
+
+                <span id="paginaAtual">
+                    Página 1
+                </span>
+
+                <button id="btnProximo">
+                    >
+                </button>
+
+                <input id="searchCurso" placeholder="Buscar curso..." />
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<a
+        class="whatsapp"
+        href="https://wa.me/5571993293906"
+        target="_blank">
+
+    WhatsApp
+
+</a>
+
+<script
+        type="module"
+        src="/frontend/controllers/dashboard.controller.js">
+</script>
+
+</body>
+</html>

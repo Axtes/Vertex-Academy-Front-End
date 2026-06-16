@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Vertex Academy</title>
+
+    <link rel="stylesheet" href="/frontend/styles/auth.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left-side">
+        <h1>Vertex Academy</h1>
+        <p>
+            Plataforma acadêmica para gestão de alunos, professores,
+            cursos, disciplinas e turmas.
+        </p>
+    </div>
+
+    <div class="right-side">
+
+        <div class="card">
+
+            <div class="tabs">
+                <button id="btnLogin" class="active" type="button">
+                    Entrar
+                </button>
+
+                <button id="btnCadastro" type="button">
+                    Cadastrar
+                </button>
+            </div>
+
+            <div id="mensagem"></div>
+
+            <!-- LOGIN -->
+            <form id="formLogin">
+
+                <input
+                    type="text"
+                    id="login"
+                    placeholder="CPF ou E-mail"
+                    autocomplete="username"
+                    required>
+
+                <input
+                    type="password"
+                    id="senhaLogin"
+                    placeholder="Senha"
+                    autocomplete="current-password"
+                    required>
+
+                <button class="submit-btn" type="submit">
+                    Entrar
+                </button>
+
+            </form>
+
+            <!-- CADASTRO -->
+            <form id="formCadastro" class="hidden">
+
+                <input type="text" id="nome" placeholder="Nome Completo" required>
+                <input type="text" id="cpf" placeholder="CPF" required>
+                <input type="email" id="email" placeholder="E-mail" required>
+
+                <input type="password" id="senhaCadastro" placeholder="Senha" required>
+
+                <input type="password" id="senhaConfirmar" placeholder="Confirmar senha" required>
+
+                <input type="date" id="dataNascimento" required>
+                <input type="text" id="telefone" placeholder="Telefone" required>
+
+                <button class="submit-btn" type="submit">
+                    Cadastrar
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module" src="/frontend/controllers/auth.controller.js"></script>
+
+</body>
+</html>

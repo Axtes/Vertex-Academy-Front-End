@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Segoe UI, sans-serif;
+    background: #f4f6fa;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* LEFT */
+.left-side {
+    width: 50%;
+    background: #003B73;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 60px;
+}
+
+.left-side h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.left-side p {
+    font-size: 18px;
+}
+
+/* RIGHT */
+.right-side {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 450px;
+    background: white;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+}
+
+/* TABS */
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    background: #eaeaea;
+}
+
+.active {
+    background: #003B73;
+    color: white;
+}
+
+/* FORMS */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.submit-btn {
+    background: #003B73;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+.hidden {
+    display: none;
+}
+
+/* MESSAGE */
+#mensagem {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+}
