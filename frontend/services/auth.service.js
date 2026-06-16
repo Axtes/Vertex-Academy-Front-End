@@ -1,6 +1,6 @@
 import { API_URL } from "/frontend/config/api.js";
 
-export async function login(login, senha) {
+export async function login(login, senha) { 
 
     const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
@@ -8,8 +8,8 @@ export async function login(login, senha) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            login,
-            senha
+            login, 
+            senha  
         })
     });
 

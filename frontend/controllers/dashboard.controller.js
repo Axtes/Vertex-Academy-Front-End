@@ -1,6 +1,7 @@
 import { listarCursos } from "/frontend/services/curso.service.js";
 import { buscarDadosAluno } from "/frontend/services/dashboard.service.js";
 import { realizarInscricao } from "/frontend/services/inscricao.service.js";
+import { removerToken } from "/frontend/services/token.storage.js";
 import { obterToken } from "/frontend/services/token.storage.js";
 import { Pagination } from "/frontend/utils/pagination.util.js";
 
@@ -136,3 +137,34 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     setupEventos();
 });
+
+const btnLogout = document.getElementById("btnLogout");
+
+btnLogout.addEventListener("click", () => {
+
+    removerToken();
+
+    window.location.href =
+        "/frontend/pages/auth.html";
+
+});
+
+const usuario = await buscarDadosAluno();
+
+configurarMenu(usuario);
+
+function configurarMenu(usuario){
+
+    const menusAluno =
+        document.querySelectorAll(".aluno-menu");
+
+
+    if(usuario.role === "ROLE_STUDENT"){
+
+        menusAluno.forEach(menu=>{
+            menu.classList.remove("hidden");
+        });
+
+    }
+
+}

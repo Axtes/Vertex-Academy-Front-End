@@ -11,51 +11,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const mensagem = document.getElementById("mensagem");
 
-    // 🔁 troca de abas
+
     btnLogin.addEventListener("click", () => {
+        console.log("clicou login");
+
+        formLogin.style.display = "flex";
+        formCadastro.style.display = "none";
+
         btnLogin.classList.add("active");
         btnCadastro.classList.remove("active");
-
-        formLogin.classList.remove("hidden");
-        formCadastro.classList.add("hidden");
 
         mensagem.innerHTML = "";
     });
 
     btnCadastro.addEventListener("click", () => {
+        console.log("clicou cadastro");
+
+        formCadastro.style.display = "flex";
+        formLogin.style.display = "none";
+
         btnCadastro.classList.add("active");
         btnLogin.classList.remove("active");
-
-        formCadastro.classList.remove("hidden");
-        formLogin.classList.add("hidden");
 
         mensagem.innerHTML = "";
     });
 
-    // 🔐 LOGIN
     formLogin.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         try {
-            const resposta = await login(
-                document.getElementById("login").value,
-                document.getElementById("senhaLogin").value
-            );
+            const loginValor = document.getElementById("login").value;
+            const senhaValor = document.getElementById("senhaLogin").value;
 
-            salvarToken(resposta.token);
+            console.log("A enviar para o service -> Login:", loginValor, "Senha:", senhaValor);
 
-            mensagem.innerHTML = "Login realizado com sucesso!";
+            const resposta = await login(loginValor, senhaValor);
 
-            setTimeout(() => {
-                window.location.href = "/frontend/pages/dashboard.html";
-            }, 1000);
+            if (resposta && resposta.token) {
+                salvarToken(resposta.token);
+                mensagem.style.color = "#10b981";
+                mensagem.innerHTML = "Login realizado com sucesso!";
+
+                setTimeout(() => {
+                    window.location.href = "/frontend/pages/dashboard.html";
+                }, 1000);
+            } else {
+                throw new Error("Token não recebido da API.");
+            }
 
         } catch (erro) {
+            mensagem.style.color = "#ef4444";
             mensagem.innerHTML = erro.message;
         }
     });
 
-    // 🧾 CADASTRO
+
+    document.querySelectorAll(".mostrarSenha").forEach(botao => {
+        botao.addEventListener("click", (e) => {
+            e.preventDefault(); 
+
+            const container = botao.closest(".password-container");
+            const input = container ? container.querySelector("input") : null;
+
+            if (!input) return;
+
+            if (input.type === "password") {
+                input.type = "text";
+                botao.textContent = "👁";
+            } else {
+                input.type = "password";
+                botao.textContent = "👁";
+            }
+        });
+    });
+
     formCadastro.addEventListener("submit", async (e) => {
         e.preventDefault();
 
@@ -63,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const confirmar = document.getElementById("senhaConfirmar").value;
 
         if (senha !== confirmar) {
+            mensagem.style.color = "#ef4444";
             mensagem.innerHTML = "As senhas não conferem!";
             return;
         }
@@ -78,15 +108,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             await cadastrar(usuario);
-
+            mensagem.style.color = "#10b981";
             mensagem.innerHTML = "Cadastro realizado com sucesso!";
 
-            // volta para login
             btnLogin.click();
-
             formCadastro.reset();
 
         } catch (erro) {
+            mensagem.style.color = "#ef4444";
             mensagem.innerHTML = erro.message;
         }
     });
