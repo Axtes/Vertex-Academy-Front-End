@@ -1,4 +1,4 @@
-import { API_URL } from "/frontend/config/api.js";
+import { API_URL } from "../../../../../../../../../../frontend/config/api.js";
 
 export async function login(login, senha) { 
 

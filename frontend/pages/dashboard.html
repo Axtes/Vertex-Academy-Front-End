@@ -1,111 +1,134 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Vertex Academy</title>
 
     <link rel="stylesheet" href="/frontend/styles/dashboard.css">
 </head>
+
 <body>
 
-<header>
+    <header>
 
-    <div class="logo">
-        Vertex Academy
-    </div>
-
-    <div class="perfil">
-
-        <div class="avatar">
-            👤
+        <div class="logo">
+            Vertex Academy
         </div>
 
-        <div class="dados-usuario">
+        <div class="perfil">
 
-            <p id="nomeUsuario"></p>
-
-            <p>
-                Matrícula:
-                <span id="matriculaUsuario"></span>
-            </p>
-
-            <p>
-                Turma:
-                <span id="turmaUsuario"></span>
-            </p>
-
-        </div>
-
-    </div>
-
-</header>
-
-<div class="container">
-
-    <aside id="menuLateral">
-
-        <button id="btnCursos">
-            Cursos
-        </button>
-
-    <div class="top-actions">
-        <button id="btnInscricao" class="hidden">
-            Inscrever-se
-        </button>
-    </div>
-
-        <button class="hidden aluno-menu">
-            Frequência
-        </button>
-
-        <button class="hidden aluno-menu">
-            Notas
-        </button>
-
-        <button class="hidden aluno-menu">
-            Disciplinas
-        </button>
-
-        <button id="btnLogout">
-            Sair
-        </button>
-
-    </aside>
-
-    <main>
-        <div id="mensagem"></div>
-
-        <div id="conteudoPrincipal">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
-                <h2>Cursos Disponíveis</h2>
-                <input id="searchCurso" placeholder="Buscar curso..." />
+            <div class="avatar">
+                👤
             </div>
 
-            <div id="listaCursos"></div>
+            <div class="dados-usuario">
 
-            <div class="paginacao">
-                <button id="btnAnterior"> &lt; </button>
-                <span id="paginaAtual">Página 1</span>
-                <button id="btnProximo"> &gt; </button>
+                <p id="nomeUsuario"></p>
+
+                <p id="wrapperEmail" style="display: none;">
+                    Email:
+                    <span id="emailUsuario"></span>
+                </p>
+
+                <p id="wrapperMatricula" style="display: none;">
+                    Matrícula:
+                    <span id="matriculaUsuario"></span>
+                </p>
+
+                <p id="wrapperTurma" style="display: none;">
+                    Turma:
+                    <span id="turmaUsuario"></span>
+                </p>
+
             </div>
+
         </div>
-    </main>
 
-</div>
+    </header>
 
-<a
-        class="whatsapp"
-        href="https://wa.me/5571993293906"
-        target="_blank">
+    <div class="container">
 
-    WhatsApp
+        <aside id="menuLateral">
 
-</a>
+            <button id="btnCursos" class="aluno-menu hidden">
+                Cursos
+            </button>
 
-<script
-        type="module"
-        src="/frontend/controllers/dashboard.controller.js">
-</script>
+            <div class="top-actions">
+                <button id="btnInscricao" class="hidden">
+                    Inscrever-se
+                </button>
+            </div>
+
+            <button class="hidden aluno-menu">
+                Frequência
+            </button>
+
+            <button class="hidden aluno-menu">
+                Notas
+            </button>
+
+            <button class="hidden aluno-menu">
+                Disciplinas
+            </button>
+
+            <button id="btnLancasNotas" class="hidden professor-menu">
+                Lançar Notas
+            </button>
+
+            <button id="btnMinhasTurmas" class="hidden professor-menu">
+                Minhas Turmas
+            </button>
+
+            <button id="btnCadCurso" class="hidden admin-menu">
+                Cadastrar Curso
+            </button>
+
+            <button id="btnCadDisciplina" class="hidden admin-menu">
+                Cadastrar Disciplina
+            </button>
+
+            <button id="btnCadProfessor" class="hidden admin-menu">
+                Cadastrar Professor
+            </button>
+
+            <button id="btnLogout">
+                Sair
+            </button>
+
+        </aside>
+
+        <main>
+            <div id="mensagem"></div>
+
+            <div id="conteudoPrincipal">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <h2>Cursos Disponíveis</h2>
+                    <input id="searchCurso" placeholder="Buscar curso..." />
+                </div>
+
+                <div id="listaCursos"></div>
+
+                <div class="paginacao">
+                    <button id="btnAnterior"> &lt; </button>
+                    <span id="paginaAtual">Página 1</span>
+                    <button id="btnProximo"> &gt; </button>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <a class="whatsapp" href="https://wa.me/5571993293906" target="_blank">
+
+        WhatsApp
+
+    </a>
+
+    <script type="module" src="/frontend/controllers/dashboard.controller.js">
+    </script>
 
 </body>
+
 </html>
